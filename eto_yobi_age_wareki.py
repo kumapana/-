@@ -42,7 +42,7 @@ year_add_month_calc+=day
 #year_add_month_calcを7で割ったあまりを出す
 weekday=year_add_month_calc%7
 
-#変数weekにweekarryから曜日を指定して代入
+#変数weekにweekarrayから曜日を指定して代入
 week=weekarray[weekday]
 #---------------------------------------------------------------
 #ここまでが曜日計算
