@@ -1,19 +1,32 @@
 # -*- coding: utf-8 -*-
 
 import datetime
-
 import sys
 
 print("このスクリプトは入力された年、月、日に対応した現在の和暦、干支、曜日、年齢、数え年を返すプログラムです。\nこのスクリプトを利用して生じた不利益等には一切の責任を負いかねます。\n")
 
-print("年(西暦)を入力して下さい")
-year=int(input())
+print("承諾する場合は 1 を入力して続行して下さい")
 
-print("月を入力して下さい")
-month=int(input())
+consent=bool(input())
 
-print("日を入力して下さい")
-day=int(input())
+if consent!=1:
+  sys.exit()
+
+print("\n年(西暦)を入力、もしくは 19700101 のようなフォーマットで入力して下さい")
+input_char=str(input())
+
+if int(input_char)>9999:
+  year=int(input_char[:4])
+  month=int(input_char[4:6])
+  day=int(input_char[6:8])
+  
+else:
+  year=int(input_char)
+  print("\n月を入力して下さい")
+  month=int(input())
+  
+  print("\n日を入力して下さい")
+  day=int(input())
 
 #ここから曜日計算
 #---------------------------------------------------------------
@@ -112,6 +125,6 @@ elif year<1867:
 #ここまでが年齢計算
 
 #実行結果の表示
-print (str(year)+"年"+str(month)+"月"+str(day)+"日は"+str(week)+"曜日です。")
+print ("\n"+str(year)+"年"+str(month)+"月"+str(day)+"日は"+str(week)+"曜日です。")
 
-print ("この年は"+str(wareki[wareki_key])+str(wareki_year)+"年であり、この年に生まれた方は現在"+str(age)+"歳で、数え年では"+str(kazoe)+"歳になります。")
+print ("\n"+str(year)+"年は"+str(wareki[wareki_key])+str(wareki_year)+"年であり、"+str(year)+"年"+str(month)+"月"+str(day)+"日"+"に生まれた方は現在"+str(age)+"歳で、数え年では"+str(kazoe)+"歳になります。")
