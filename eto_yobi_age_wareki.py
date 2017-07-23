@@ -4,6 +4,8 @@ import datetime
 
 import sys
 
+print("このスクリプトは入力された年、月、日に対応した現在の和暦、干支、曜日、年齢、数え年を返すプログラムです。\nこのスクリプトを利用して生じた不利益等には一切の責任を負いかねます。\n")
+
 print("年(西暦)を入力して下さい")
 year=int(input())
 
@@ -70,14 +72,18 @@ wareki=["明治","大正","昭和","平成"]
 today=datetime.date.today()
 
 #年齢計算
-if month<today.year:
+if month<today.month:
   age=today.year-year
   kazoe=age+1
 elif month==today.month:
-  if day<=today.day:
+  if day<today.day:
     age=today.year-year
     kazoe=age+1
-  else :
+  elif day==today.day:
+    print("\n誕生日おめでとうございます。\n")
+    age=today.year-year
+    kazoe=age+1
+  elif day>today.day:
     age=today.year-year-1
     kazoe=age+2
 elif month>today.month:
